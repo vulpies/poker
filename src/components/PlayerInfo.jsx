@@ -1,11 +1,13 @@
-import React from 'react'
-import { Avatar, CloseEye, Star } from '../svg'
+import React, { useState } from 'react';
+import { Avatar, Star } from '../svg';
 
 const PlayerInfo = () => {
+	const [showBalanse, setShow] = useState(true)
+
 	return (
-		<div className='player__wrapper'>
+		<section className='player__wrapper'>
 			<div className='player__nickname'>
-				<p>LongUserName</p>
+				<h2>LongUserName</h2>
 				<div className='player__stars'>
 					<span><Star /></span>
 					<span><Star /></span>
@@ -15,15 +17,21 @@ const PlayerInfo = () => {
 				</div>
 			</div>
 			<div className='player__img'>
-				<Avatar />
-				{/* <img src='../img/ava.png' alt='' /> */}
+				{/* <Avatar /> */}
+				<img src={require('../image/ava.png')} alt="avatar" />
 			</div>
-			<div className='player__money'>
-				<div className='player__money-eye'><CloseEye /></div>
-				<p>$100,500.00</p>
+			<div className='player__balance'>
+				<span className={showBalanse ? 'showBalance' : 'hideBalance'} onClick={() => setShow(!showBalanse)}>
+				</span>
+
+				{showBalanse ?
+					<p>$100,500.00</p> :
+					<p className='show'>Show balance</p>
+				}
+
 			</div>
-		</div>
-	)
-}
+		</section>
+	);
+};
 
 export default PlayerInfo

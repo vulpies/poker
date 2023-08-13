@@ -1,17 +1,10 @@
-import { Spinner, ProgressBar, PlayerInfo, TournamentItem } from "./components/index";
+import { Header, Main } from "./components/index";
 
 function App() {
   return (
     <>
-      <div className='main__wrapper'>
-        <h3 className='main__title'>
-          Poker
-        </h3>
-        <Spinner />
-        <PlayerInfo />
-        <ProgressBar />
-        <TournamentItem />
-      </div>
+      <Header />
+      <Main />
     </>
   );
 }
